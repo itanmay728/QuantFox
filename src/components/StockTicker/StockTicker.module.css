@@ -1,22 +1,4 @@
-.ticker{
-  background:var(--glass);
-  padding:8px 12px;
-  border-radius:10px;
-  overflow:hidden;
-  margin-bottom:16px;
-}
-.marquee{
-  display:flex;
-  gap:28px;
-  animation: scroll 20s linear infinite;
-  white-space:nowrap;
-  align-items:center;
-}
-.item{ display:inline-flex; gap:8px; align-items:center; color:var(--muted); font-weight:600; }
-.up{ color: #29d07a; } /* green for up */
-.down{ color: var(--accent); }
+/* .tvTickerWrapper{
+  border: 1px solid gray;
 
-@keyframes scroll {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-50%); }
-}
+} */

@@ -109,10 +109,10 @@ const Footer = () => (
         </p>
         <p>
           <span>Address: </span> 
-          <div>
+          <a>
             9, Kotla Vihar Phase II <br />
             New Delhi - 110043, India
-          </div>
+          </a>
         </p>
       </div>
     </div>

@@ -5,10 +5,12 @@ import Footer from "./components/Footer/Footer";
 import styles from "./App.module.css";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import FloatingContact from "./components/FloatingContact/FloatingContact";
+import StockTicker from "./components/StockTicker/StockTicker";
 
 const App = () => {
   return (
     <div className={styles.appContainer}>
+      <StockTicker/>
       <ScrollToTop/>
       <Navbar />
       <main className={styles.mainContent}>

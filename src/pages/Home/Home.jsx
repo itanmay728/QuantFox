@@ -8,10 +8,10 @@ import WhoWeAre from "../../components/WhoWeAre/WhoWeAre";
 import { Link } from "react-router-dom";
 
 const Home = () => {
-
+// items={mockStocks.slice(0, 8)}
   return (
     <div>
-      <StockTicker items={mockStocks.slice(0, 8)} />
+      <StockTicker/>
       <main className={styles.home}>
         <div className={styles.hero}>
           <h1>Market at Your Fingertips</h1>

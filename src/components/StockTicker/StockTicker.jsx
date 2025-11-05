@@ -1,22 +1,45 @@
-import React from "react";
-import styles from "./StockTicker.module.css";
+import React, { useEffect, useRef } from "react";
+import styles from './StockTicker.module.css';
 
-const StockTicker = ({ items = [] }) => {
+const StockTicker = () => {
+  const container = useRef(null);
+
+ useEffect(() => {
+  if (!container.current) return;
+
+  // ✅ Clear previous widget to prevent duplicates
+  container.current.innerHTML = "";
+
+  const script = document.createElement("script");
+  script.src = "https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js";
+  script.async = true;
+  script.innerHTML = JSON.stringify({
+    symbols: [
+      { proName: "NASDAQ:AAPL", title: "Apple" },
+      { proName: "NASDAQ:TSLA", title: "Tesla" },
+      { proName: "NASDAQ:GOOGL", title: "Google" },
+      { proName: "NASDAQ:MSFT", title: "Microsoft" },
+      { proName: "NASDAQ:AMZN", title: "Amazon" }
+    ],
+    showSymbolLogo: true,
+    colorTheme: "dark",
+    isTransparent: false,
+    displayMode: "adaptive",
+    locale: "en"
+  });
+
+  container.current.appendChild(script);
+}, []);
+
+
   return (
-    <div className={styles.ticker}>
-      <div className={styles.marquee}>
-        {items.concat(items).map((it, idx) => (
-          <div key={idx} className={styles.item}>
-            <strong>{it.symbol}</strong>&nbsp;
-            <span className={it.change > 0 ? styles.up : styles.down}>
-              ₹{it.price} ({it.change > 0 ? "+" : ""}
-              {it.change.toFixed(2)}%)
-            </span>
-          </div>
-        ))}
-      </div>
+    <div className= {styles.tvTickerWrapper}>
+      <div ref={container} />
     </div>
   );
 };
 
 export default StockTicker;
+
+
+
