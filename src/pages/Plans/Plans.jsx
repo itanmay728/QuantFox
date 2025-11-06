@@ -60,19 +60,20 @@ const faqs = [
 ];
 
 const Plans = () => {
+  const [isOpen, setIsOpen] = useState(false);
 
-    const [isOpen, setIsOpen] = useState(false);
-
-    const handleOpenForm = () => setIsOpen(true);
-    const handleCloseForm = () => setIsOpen(false);
+  const handleOpenForm = () => setIsOpen(true);
+  const handleCloseForm = () => setIsOpen(false);
   return (
     <main className={styles.main}>
       {/* Hero Section */}
       <section className={styles.hero}>
-        <h1>Find the <span>Plan</span> That's Right for You</h1>
+        <h1>
+          Find the <span>Plan</span> That's Right for You
+        </h1>
         <p>
-          Choose the <span>plan</span> that fits your trading style and goals. Get started
-          today.
+          Choose the <span>plan</span> that fits your trading style and goals.
+          Get started today.
         </p>
       </section>
 
@@ -98,7 +99,9 @@ const Plans = () => {
             <ul className={styles.features}>
               {plan.features.map((feature, i) => (
                 <li key={i}>
-                  <span className="material-symbols-outlined">check_circle</span>
+                  <span className="material-symbols-outlined">
+                    check_circle
+                  </span>
                   {feature}
                 </li>
               ))}
@@ -107,6 +110,12 @@ const Plans = () => {
               className={`${styles.btn} ${
                 plan.highlight ? styles.primaryBtn : styles.secondaryBtn
               }`}
+              onClick={() =>
+                window.open(
+                  `https://chat.whatsapp.com/I76SepyZVOkJoLKO42Qbyk?mode=ems_copy_t?text=Hi! I'm interested in the ${plan.name} plan.`,
+                  "_blank"
+                )
+              }
             >
               {plan.button}
             </button>
@@ -116,7 +125,9 @@ const Plans = () => {
 
       {/* Contact Section */}
       <section className={styles.contactSection}>
-        <h2>Need More Clarity on Our <span>Plans?</span></h2>
+        <h2>
+          Need More Clarity on Our <span>Plans?</span>
+        </h2>
         <p>
           If you'd like to learn more about our plans, feel free to call us or
           send a message — our team will gladly help you find the perfect fit.
@@ -128,15 +139,11 @@ const Plans = () => {
           <a onClick={handleOpenForm} className={styles.msgBtn}>
             💬 Send Message
           </a>
-          {isOpen && 
-          
-          createPortal(
-            <EnquiryForm onClose={handleCloseForm}/>,
-            document.getElementById("EnquiryForm")
-          )
-
-          }
-          
+          {isOpen &&
+            createPortal(
+              <EnquiryForm onClose={handleCloseForm} />,
+              document.getElementById("EnquiryForm")
+            )}
         </div>
       </section>
 
@@ -155,9 +162,6 @@ const Plans = () => {
           ))}
         </div>
       </section>
-
-      
-      
     </main>
   );
 };

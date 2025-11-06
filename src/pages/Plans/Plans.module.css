@@ -262,6 +262,7 @@
 .msgBtn:hover {
   background: #ea2a2a;
   color: #fff;
+  cursor: pointer;
 }
 
 /* Responsive Text Scaling */

@@ -43,16 +43,16 @@ const Footer = () => (
           >
             <FaInstagram />
           </a>
-          <a
+          {/* <a
             href="#"
             aria-label="LinkedIn"
             target="_blank"
             rel="noopener noreferrer"
           >
             <FaLinkedinIn />
-          </a>
+          </a> */}
           <a
-            href="#"
+            href="https://chat.whatsapp.com/I76SepyZVOkJoLKO42Qbyk?mode=ems_copy_t"
             aria-label="WhatsApp"
             target="_blank"
             rel="noopener noreferrer"
@@ -89,10 +89,10 @@ const Footer = () => (
         >
           <FaInstagram /> Instagram
         </a>
-        <a href="#" target="_blank" rel="noopener noreferrer">
+        {/* <a href="#" target="_blank" rel="noopener noreferrer">
           <FaLinkedinIn /> LinkedIn
-        </a>
-        <a href="#" target="_blank" rel="noopener noreferrer">
+        </a> */}
+        <a href="https://chat.whatsapp.com/I76SepyZVOkJoLKO42Qbyk?mode=ems_copy_t" target="_blank" rel="noopener noreferrer">
           <FaWhatsapp /> WhatsApp
         </a>
       </div>

@@ -38,6 +38,9 @@ const Navbar = () => {
         <NavLink to="/contact" onClick={closeMenu} className={({ isActive }) => (isActive ? styles.active : "")}>
           Contact
         </NavLink>
+        <NavLink to="/calculater" onClick={closeMenu} className={({ isActive }) => (isActive ? styles.active : "")}>
+          Calculater
+        </NavLink>
         
         
       </nav>

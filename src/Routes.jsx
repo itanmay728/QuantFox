@@ -7,6 +7,7 @@ import NotFound from "./pages/NotFound/NotFound";
 import About from './pages/About/About';
 import Contact from './pages/Contact/Contact';
 import Plans from './pages/Plans/Plans';
+import FinancialCalculator from './components/FinancialCalculator/FinancialCalculator';
 
 const Routes = () => {
 
@@ -34,6 +35,10 @@ const Routes = () => {
         { 
             path: "plans", 
             element: <Plans /> 
+        },
+        { 
+            path: "calculater", 
+            element: <FinancialCalculator /> 
         },
         { 
             path: "*", 

@@ -30,9 +30,9 @@ const WhyChooseUs = () => {
                   market trends, economic reforms, and staying updated with the
                   latest opportunities.
                 </p>
-                <a href="#" className={styles.moreLink}>
+                <Link to="/services" className={styles.moreLink}>
                   More information
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -46,7 +46,7 @@ const WhyChooseUs = () => {
                   At QuantFox, you will get world-class financial insights and
                   services at affordable pricing.
                 </p>
-                <Link to="/checkout" className={styles.moreLink}>
+                <Link to="/plans" className={styles.moreLink}>
                   More information
                 </Link>
               </div>

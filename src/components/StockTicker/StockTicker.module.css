@@ -1,4 +1,12 @@
-/* .tvTickerWrapper{
-  border: 1px solid gray;
-
-} */
+.stockTicker {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 40px; /* fixed height for consistency */
+  background: #111;
+  z-index: 1200; /* above everything else */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

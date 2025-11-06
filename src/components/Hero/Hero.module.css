@@ -1,0 +1,153 @@
+/* 🌟 Layout Wrapper */
+.heroWrapper {
+  width: 100%;
+  max-width: 1200px;
+  margin: -1rem auto;
+  padding: 1rem;
+  color: white;
+}
+
+/* 🏁 Hero Section */
+.hero {
+  text-align: center;
+  /* margin-top: 2rem; */
+  animation: fadeInUp 1s ease forwards;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.hero p {
+  margin-top: 0.7rem;
+  color: #bbb;
+  font-size: 1rem;
+  max-width: 650px;
+  margin-inline: auto;
+  line-height: 1.6;
+}
+
+/* 🔍 Search Input */
+.hero input {
+  margin-top: 1.8rem;
+  width: 100%;
+  max-width: 500px;
+  height: 48px;
+  border-radius: 30px;
+  padding: 0 1rem;
+  border: 1px solid #333;
+  background: #111;
+  color: white;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.hero input:focus {
+  border-color: #dc2626;
+  box-shadow: 0 0 10px rgba(220, 38, 38, 0.4);
+}
+
+/* ✨ Trending Section */
+.trending {
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.trending h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #fff;
+}
+
+/* 📊 Stock Cards */
+.grid {
+  display: grid;
+  gap: 1.2rem;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+}
+
+.card {
+  background: #111;
+  border: 1px solid #222;
+  border-radius: 12px;
+  padding: 1.2rem;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 0 18px rgba(220, 38, 38, 0.3);
+}
+
+.card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.card h3 span {
+  color: #aaa;
+  font-size: 0.9rem;
+  display: block;
+  margin-top: 0.2rem;
+}
+
+.price {
+  font-weight: 600;
+  margin-top: 0.6rem;
+  font-size: 1rem;
+}
+
+.gain {
+  color: #16a34a;
+}
+
+.loss {
+  color: #ef4444;
+}
+
+/* 🎬 Fade-in Animation */
+.fadeIn {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .hero p {
+    font-size: 0.95rem;
+  }
+  .grid {
+    gap: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.6rem;
+  }
+  .trending h2 {
+    font-size: 1.4rem;
+  }
+}
