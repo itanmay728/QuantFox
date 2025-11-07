@@ -1,153 +1,286 @@
-/* 🌟 Layout Wrapper */
-.heroWrapper {
+.heroContainer {
+  position: relative;
+  min-height: 80vh;
   width: 100%;
-  max-width: 1200px;
-  margin: -1rem auto;
-  padding: 1rem;
-  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  /* overflow: hidden; */
 }
 
-/* 🏁 Hero Section */
-.hero {
+/* Gradient BG */
+.gradientBackground {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom right,
+    rgba(99, 102, 241, 0.05),
+    transparent,
+    rgba(244, 63, 94, 0.05)
+  );
+  filter: blur(80px);
+  z-index: 0;
+}
+
+/* Floating Shapes */
+.shapeWrapper {
+  position: absolute;
+}
+
+.shape {
+  position: relative;
+}
+
+.gradientCircle {
+  position: absolute;
+  inset: 0;
+  border-radius: 50px;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(3px);
+  box-shadow: 0 8px 32px rgba(255, 255, 255, 0.1);
+}
+
+.shape1 {
+  left: -5%;
+  top: 15%;
+}
+.shape2 {
+  right: -5%;
+  top: 70%;
+}
+.shape3 {
+  left: 5%;
+  bottom: 5%;
+}
+.shape4 {
+  right: 15%;
+  top: 10%;
+}
+.shape5 {
+  left: 20%;
+  top: 5%;
+}
+
+/* -------- Hero Content -------- */
+.heroContent {
+  position: relative;
+  z-index: 10;
+  max-width: 850px;
   text-align: center;
-  /* margin-top: 2rem; */
-  animation: fadeInUp 1s ease forwards;
-}
-
-.hero h1 {
-  font-size: 2.8rem;
-  font-weight: 800;
-  letter-spacing: 0.5px;
-}
-
-.hero p {
-  margin-top: 0.7rem;
-  color: #bbb;
-  font-size: 1rem;
-  max-width: 650px;
-  margin-inline: auto;
-  line-height: 1.6;
-}
-
-/* 🔍 Search Input */
-.hero input {
-  margin-top: 1.8rem;
-  width: 100%;
-  max-width: 500px;
-  height: 48px;
-  border-radius: 30px;
   padding: 0 1rem;
-  border: 1px solid #333;
-  background: #111;
-  color: white;
-  outline: none;
-  transition: all 0.3s ease;
+  transform: translateY(-50px);
 }
 
-.hero input:focus {
-  border-color: #dc2626;
-  box-shadow: 0 0 10px rgba(220, 38, 38, 0.4);
+/* Badge */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 30px;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 2rem;
 }
 
-/* ✨ Trending Section */
-.trending {
-  margin-top: 4rem;
+/* 🔴 Blinking Dot */
+.badgeDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(244, 63, 94, 0.9);
+  animation: blink 1.3s infinite ease-in-out;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+/* Title */
+.title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 400;
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
   text-align: center;
 }
 
-.trending h2 {
-  font-size: 1.8rem;
-  font-weight: 700;
-  margin-bottom: 2rem;
+.textGradient1 {
+  background: linear-gradient(to bottom, #fff, rgba(255, 255, 255, 0.8));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.textGradient2 {
+  background: linear-gradient(to right, #a5b4fc, #fff, #fca5a5);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Subtitle */
+.subtitle {
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.6;
+  font-weight: 300;
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
+}
+
+/* 🌟 Call Button */
+.callButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.8rem 1.8rem;
+  background: linear-gradient(90deg, #f43f5e 0%, #f87171 100%);
   color: #fff;
-}
-
-/* 📊 Stock Cards */
-.grid {
-  display: grid;
-  gap: 1.2rem;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-}
-
-.card {
-  background: #111;
-  border: 1px solid #222;
-  border-radius: 12px;
-  padding: 1.2rem;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  cursor: pointer;
-  opacity: 0;
-  transform: translateY(20px);
-}
-
-.card:hover {
-  transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 0 18px rgba(220, 38, 38, 0.3);
-}
-
-.card h3 {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #fff;
-}
-
-.card h3 span {
-  color: #aaa;
-  font-size: 0.9rem;
-  display: block;
-  margin-top: 0.2rem;
-}
-
-.price {
-  font-weight: 600;
-  margin-top: 0.6rem;
+  border: none;
+  border-radius: 40px;
   font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.35s ease;
+  box-shadow: 0 4px 15px rgba(244, 63, 94, 0.4);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
 }
 
-.gain {
-  color: #16a34a;
+.callButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(244, 63, 94, 0.55);
 }
 
-.loss {
-  color: #ef4444;
+.callButton:active {
+  transform: scale(0.97);
 }
 
-/* 🎬 Fade-in Animation */
-.fadeIn {
+.phoneicon {
+  font-size: 1.1rem;
+  color: #fff;
+  transition: transform 0.3s ease;
+}
+
+.callButton:hover .phoneicon {
+  transform: rotate(-10deg) scale(1.1);
+}
+
+/* ✨ Animated pulse effect */
+.callButton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 40px;
+  background: rgba(244, 63, 94, 0.3);
   opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.8s ease forwards;
+  transition: opacity 0.4s ease;
+  animation: pulseGlow 2s infinite ease-in-out;
 }
 
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(25px);
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(1);
   }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
+  50% {
+    opacity: 0.6;
+    transform: scale(1.05);
   }
 }
 
-/* 📱 Responsive */
+
+/* Overlay */
+.overlayGradient {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* 📱 Responsive Fixes */
+@media (max-width: 1024px) {
+  .heroContent {
+    transform: translateY(-20px);
+  }
+}
+
 @media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2rem;
+  .heroContent {
+    transform: none;
   }
-  .hero p {
-    font-size: 0.95rem;
+
+  .badge {
+    font-size: 0.7rem;
+    margin-bottom: 1.2rem;
   }
-  .grid {
-    gap: 0.8rem;
+
+  .subtitle {
+    margin-bottom: 1.5rem;
+  }
+
+  .callButton {
+    font-size: 0.9rem;
+    padding: 0.7rem 1.5rem;
+    gap: 0.5rem;
+  }
+
+  .phoneicon {
+    font-size: 1rem;
+  }
+
+  .shape1 {
+    left: -25%;
+    top: 15%;
+  }
+  .shape2 {
+    display: none;
+  }
+  .shape3 {
+    left: 5%;
+    bottom: 5%;
+  }
+  .shape4 {
+    left: 15%;
+   top: 60%;
+  }
+  .shape5 {
+    left: 50%;
+    top: 0%;
   }
 }
 
 @media (max-width: 480px) {
-  .hero h1 {
-    font-size: 1.6rem;
+  .badge {
+    padding: 0.3rem 0.7rem;
   }
-  .trending h2 {
-    font-size: 1.4rem;
+
+  .callButton {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+  }
+
+  .subtitle {
+    margin-bottom: 1.5rem;
+  }
+
+  .callButton {
+    font-size: 0.85rem;
+    padding: 0.6rem 1.2rem;
+  }
+
+  .phoneicon {
+    font-size: 0.95rem;
   }
 }

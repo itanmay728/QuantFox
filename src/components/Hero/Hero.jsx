@@ -1,87 +1,160 @@
-import React, { useEffect } from "react";
+import React from "react";
+import { motion } from "framer-motion";
 import styles from "./Hero.module.css";
+import { FaPhoneVolume } from "react-icons/fa6";
 
-const Hero = () => {
+const ElegantShape = ({
+  className,
+  delay = 0,
+  width = 400,
+  height = 100,
+  rotate = 0,
+  gradient = "var(--gradient-default)",
+}) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: -150, rotate: rotate - 15 }}
+      animate={{ opacity: 1, y: 0, rotate: rotate }}
+      transition={{
+        duration: 2.4,
+        delay,
+        ease: [0.23, 0.86, 0.39, 0.96],
+        opacity: { duration: 1.2 },
+      }}
+      className={`${styles.shapeWrapper} ${className}`}
+    >
+      <motion.div
+        animate={{ y: [0, 15, 0] }}
+        transition={{
+          duration: 12,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        style={{ width, height }}
+        className={styles.shape}
+      >
+        <div
+          className={styles.gradientCircle}
+          style={{
+            background: gradient,
+          }}
+        />
+      </motion.div>
+    </motion.div>
+  );
+};
 
-  useEffect(() => {
-    const elements = document.querySelectorAll(`.${styles.fadeIn}`);
-    elements.forEach((el, index) => {
-      el.style.animationDelay = `${index * 0.2}s`;
-    });
-
-  }, []);
+const Hero = ({
+  badge = "Quant-Powered Investment Platform",
+  title1 = "Empower Your Financial Growth ",
+  title2 = "With Intelligent Market Insights",
+}) => {
+  const fadeUpVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 1,
+        delay: 0.5 + i * 0.2,
+        ease: [0.25, 0.4, 0.25, 1],
+      },
+    }),
+  };
 
   return (
-    <div className={styles.heroWrapper}>
-      {/* 🌟 Hero Section */}
-      <section className={`${styles.hero} ${styles.fadeIn}`}>
-        <h1 className={styles.fadeIn}>Market at Your Fingertips</h1>
-        <p className={styles.fadeIn}>
-          QuantFox is a smart investing platform that helps people make
-          data-driven investment decisions and maximize their profits through
-          advanced analytics and intelligent insights.
-        </p>
+    <div className={styles.heroContainer}>
+      <div className={styles.gradientBackground} />
 
-        <input
-          type="text"
-          placeholder="Search by stock ticker or company name"
-          className={styles.fadeIn}
+      {/* Floating Shapes */}
+      <div className={styles.shapesContainer}>
+        <ElegantShape
+          delay={0.3}
+          width={400}
+          height={100}
+          rotate={12}
+          gradient="linear-gradient(to right, rgba(99,102,241,0.15), transparent)"
+          className={styles.shape1}
         />
-      </section>
+        <ElegantShape
+          delay={0.5}
+          width={500}
+          height={120}
+          rotate={-15}
+          gradient="linear-gradient(to right, rgba(244,63,94,0.15), transparent)"
+          className={styles.shape2}
+        />
+        <ElegantShape
+          delay={0.4}
+          width={300}
+          height={80}
+          rotate={-8}
+          gradient="linear-gradient(to right, rgba(139,92,246,0.15), transparent)"
+          className={styles.shape3}
+        />
+        <ElegantShape
+          delay={0.6}
+          width={200}
+          height={60}
+          rotate={20}
+          gradient="linear-gradient(to right, rgba(251,191,36,0.15), transparent)"
+          className={styles.shape4}
+        />
+        <ElegantShape
+          delay={0.7}
+          width={150}
+          height={40}
+          rotate={-25}
+          gradient="linear-gradient(to right, rgba(34,211,238,0.15), transparent)"
+          className={styles.shape5}
+        />
+      </div>
 
-      {/* 📊 Trending Stocks */}
-      <section className={`${styles.trending} ${styles.fadeIn}`}>
-        <h2>Today's Trending Stocks</h2>
-        <div className={styles.grid}>
-          {[
-            {
-              symbol: "AAPL",
-              name: "Apple Inc.",
-              price: "$172.28",
-              change: "+1.25 (0.73%)",
-              isGain: true,
-            },
-            {
-              symbol: "GOOGL",
-              name: "Alphabet Inc.",
-              price: "$140.76",
-              change: "-0.98 (-0.69%)",
-              isGain: false,
-            },
-            {
-              symbol: "AMZN",
-              name: "Amazon.com",
-              price: "$134.50",
-              change: "+2.10 (1.59%)",
-              isGain: true,
-            },
-            {
-              symbol: "MSFT",
-              name: "Microsoft",
-              price: "$337.35",
-              change: "-1.50 (-0.44%)",
-              isGain: false,
-            },
-          ].map((stock, i) => (
-            <div
-              key={i}
-              className={`${styles.card} ${styles.fadeIn}`}
-              style={{ animationDelay: `${0.4 + i * 0.2}s` }}
-            >
-              <h3>
-                {stock.symbol} <span>{stock.name}</span>
-              </h3>
-              <p className={styles.price}>
-                {stock.price}{" "}
-                <span className={stock.isGain ? styles.gain : styles.loss}>
-                  {stock.change}
-                </span>
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* Content */}
+      <div className={styles.heroContent}>
+        <motion.div
+          custom={0}
+          variants={fadeUpVariants}
+          initial="hidden"
+          animate="visible"
+          className={styles.badge}
+        >
+          <div className={styles.badgeDot}></div>
+          <span>{badge}</span>
+        </motion.div>
 
+        <motion.div
+          custom={1}
+          variants={fadeUpVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          <h1 className={styles.title}>
+            <span className={styles.textGradient1}>{title1}</span>
+            <br />
+            <span className={styles.textGradient2}>{title2}</span>
+          </h1>
+        </motion.div>
+
+        <motion.div
+          custom={2}
+          variants={fadeUpVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          <p className={styles.subtitle}>
+            Build wealth confidently with real-time analytics, smart portfolio
+            tools, and personalized investment strategies designed for the
+            modern investor.
+          </p>
+          <a href="tel:+919654825156" className={styles.callButton}>
+            <FaPhoneVolume className={styles.phoneicon} />
+            <span>Jump on a Call</span>
+          </a>
+        </motion.div>
+      </div>
+
+      <div className={styles.overlayGradient} />
     </div>
   );
 };
